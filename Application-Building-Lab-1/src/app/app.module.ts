@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { SendMessageComponentComponent } from './send-message-component/send-mes
 import { UserMessageComponentComponent } from './user-message-component/user-message-component.component';
 import { SenderMessageComponentComponent } from './sender-message-component/sender-message-component.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { HeaderComponentComponent } from './header-component/header-component.co
     SendMessageComponentComponent,
     UserMessageComponentComponent,
     SenderMessageComponentComponent,
-    HeaderComponentComponent
+    HeaderComponentComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

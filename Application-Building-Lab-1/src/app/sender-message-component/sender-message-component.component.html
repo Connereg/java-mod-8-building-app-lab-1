@@ -7,7 +7,22 @@
         >{{message.sender.firstName[0]}}</span>
       </div>
       <div class="col-8 p-3 border rounded-5">
-        <span>{{message.text}}</span>
+        <span
+        [ngClass]="message.sender.isOnline ? 'fw-bold' : 'fw-light'"
+        >{{message.text}}</span>
       </div>
     </div>
   </div>
+
+  <!-- RECOMENDED: USE CSS CLASSES OVER INLINE STYLING -->
+
+  <!-- <span 
+    class="badge"
+    [ngStyle]="getCurrentStyles()"
+  >{{message.sender.firstName[0]}}</span> -->
+
+  <!-- <span 
+    class="badge"
+    [ngClass]="message.sender.isOnline ? 'bg-primary' : 'bg-secondary'"
+  >{{message.sender.firstName[0]}}</span> -->
+

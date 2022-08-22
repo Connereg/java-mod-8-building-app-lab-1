@@ -16,6 +16,13 @@ export class SenderMessageComponentComponent implements OnInit {
 
   constructor() { }
 
+  getCurrentStyles() {
+    let currentStyles = {
+      'background-color': this.message.sender.isOnline? 'blue' : 'red',
+    };
+    return currentStyles;
+  }
+
   ngOnInit(): void {
   }
 
