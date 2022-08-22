@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Conversation } from '../conversation.model';
 
 @Component({
   selector: 'app-conversation-control-component',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conversation-control-component.component.css']
 })
 export class ConversationControlComponentComponent implements OnInit {
-  conversations = [
+  conversations: Conversation[] = [
     { 
       id: 1, 
       users: [

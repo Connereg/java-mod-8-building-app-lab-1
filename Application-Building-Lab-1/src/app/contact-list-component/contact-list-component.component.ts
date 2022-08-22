@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-contact-list-component',
@@ -7,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponentComponent implements OnInit {
 
-  users = [
+  users: User[] = [
     { firstName: "Aurelie"},
     { firstName: "James"},
     { firstName: "Jessica"},
     { firstName: "Ludovic"},
-    { firstName: "Maria"}
-  ]
+    { firstName: "Maria"},
+  ];
 
-  constructor() { }
+  constructor() {
+    console.log("Displaying All Users...");
+    this.users.map((user: User) => console.log(user.firstName))
+  }
 
   ngOnInit(): void {
   }
