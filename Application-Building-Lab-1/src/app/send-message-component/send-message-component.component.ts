@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggingService } from '../logging-service.service';
 
 @Component({
   selector: 'app-send-message-component',
@@ -6,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./send-message-component.component.css']
 })
 export class SendMessageComponentComponent implements OnInit {
-  messageString: string;
+  messageString?: string;
+
+  loggingSvce = new LoggingService();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSendMessage() {
+    this.loggingSvce.log("Send the following message: ");
+    if (this.messageString) {
+      this.loggingSvce.log(this.messageString);
+    }
+    
   }
 
 }

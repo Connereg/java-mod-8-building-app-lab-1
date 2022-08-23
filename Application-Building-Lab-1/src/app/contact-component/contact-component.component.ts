@@ -7,7 +7,7 @@ import { User } from '../user.model'
   styleUrls: ['./contact-component.component.css']
 })
 export class ContactComponentComponent implements OnInit {
-  @Input() user: User;
+  @Input() user?: User;
 
   constructor() { }
 
