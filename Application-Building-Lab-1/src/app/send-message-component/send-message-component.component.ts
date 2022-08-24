@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggingService } from '../logging-service.service';
 
+import { MessagingDataService } from '../messaging-data.service';
+import { Message } from '../message.model'
+import { User } from '../user.model'
+
+
 @Component({
   selector: 'app-send-message-component',
   templateUrl: './send-message-component.component.html',
@@ -9,9 +14,7 @@ import { LoggingService } from '../logging-service.service';
 export class SendMessageComponentComponent implements OnInit {
   messageString?: string;
 
-  loggingSvce = new LoggingService();
-
-  constructor() { }
+  constructor(private loggingSvce: LoggingService, private sendingMessageService: MessagingDataService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +23,9 @@ export class SendMessageComponentComponent implements OnInit {
     this.loggingSvce.log("Send the following message: ");
     if (this.messageString) {
       this.loggingSvce.log(this.messageString);
+      let messageObj = new Message(new User( "COOOl", true), this.messageString, 1, 5 )
+
+      this.sendingMessageService.addUserMessage(messageObj);
     }
     
   }
