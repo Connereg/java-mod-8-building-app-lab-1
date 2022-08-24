@@ -23,7 +23,14 @@ export class SendMessageComponentComponent implements OnInit {
     this.loggingSvce.log("Send the following message: ");
     if (this.messageString) {
       this.loggingSvce.log(this.messageString);
-      let messageObj = new Message(new User( "COOOl", true), this.messageString, 1, 5 )
+      let messageObj: Message = {
+        sender: new User("Cool", true),
+        text: this.messageString,
+        conversationId: 1,
+        sequenceNumber: 5
+      }
+
+      // new User( "COOOl", true), this.messageString, 1, 5 
 
       this.sendingMessageService.addUserMessage(messageObj);
     }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="message">
     <div class="row">
       <div class="col-1 p-3">
         <span 
@@ -8,7 +8,7 @@
       </div>
       <div class="col-8 p-3 border rounded-5">
         <span
-        [ngClass]="message.sender.isOnline ? 'fw-bold' : 'fw-light'"
+        [ngClass]="message.sender.isOnline ? 'bg-primary' : 'fw-bold'"
         >{{message.text}}</span>
       </div>
     </div>

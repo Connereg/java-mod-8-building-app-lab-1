@@ -14,7 +14,11 @@ export class MessageCountComponent implements OnInit {
 
   ngOnInit(): void {
     this.messagingSvce.userMessagesChanged.subscribe((messages: Message[]) => {
-      this.sentMessageCount = messages.length;
+      this.sentMessageCount += messages.length;
+    })
+
+    this.messagingSvce.senderMessagesChanged.subscribe((messages: Message[]) => {
+      this.sentMessageCount += messages.length;
     })
   }
 
