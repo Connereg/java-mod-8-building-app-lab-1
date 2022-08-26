@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Conversation } from '../conversation.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-conversation-control-component',
@@ -34,7 +35,11 @@ export class ConversationControlComponentComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  onNewMessage() {
+    this.router.navigate(['contactList']);
+  }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Message } from "../message.model"
+import { MessagingDataService } from '../messaging-data.service';
+import { LoggingService } from '../logging-service.service';
 
 @Component({
   selector: 'app-user-message-component',
@@ -7,14 +9,15 @@ import { Message } from "../message.model"
   styleUrls: ['./user-message-component.component.css']
 })
 export class UserMessageComponentComponent implements OnInit {
-  @Input() message: Message = {
-    sender: { firstName: "Maria" },
-    text: "Message from Maria",
-    conversationId: 1,
-    sequenceNumber: 0,
-  }
+  @Input() message!: Message;
 
-  constructor() { }
+  constructor(private messagingDataService :MessagingDataService,private loggingSvce : LoggingService) { }
+
+  
+  onSubmitDelete() {
+    this.loggingSvce.log("Deleting message... " + this.message.text)
+    this.messagingDataService.deleteUserMessage(this.message)
+  }
 
   ngOnInit(): void {
   }

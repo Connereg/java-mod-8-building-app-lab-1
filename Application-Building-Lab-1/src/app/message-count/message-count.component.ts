@@ -8,17 +8,20 @@ import { Message } from '../message.model'
   styleUrls: ['./message-count.component.css']
 })
 export class MessageCountComponent implements OnInit {
-  sentMessageCount = 0;
+  userMessageCount = 0;
+  senderMessageCount = 0;
 
   constructor(private messagingSvce: MessagingDataService) { }
 
   ngOnInit(): void {
     this.messagingSvce.userMessagesChanged.subscribe((messages: Message[]) => {
-      this.sentMessageCount += messages.length;
+      console.log(messages.length);
+      this.userMessageCount = messages.length;
     })
 
     this.messagingSvce.senderMessagesChanged.subscribe((messages: Message[]) => {
-      this.sentMessageCount += messages.length;
+      console.log(messages.length);
+      this.senderMessageCount = messages.length;
     })
   }
 

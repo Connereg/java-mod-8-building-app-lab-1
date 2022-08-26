@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { HighlightDirective } from './highlight.directive';
 import { MessagingDataService } from './messaging-data.service';
 import { LoggingService } from './logging-service.service';
 import { MessageCountComponent } from './message-count/message-count.component';
+import { ApplicationBodyComponent } from './application-body/application-body.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +34,15 @@ import { MessageCountComponent } from './message-count/message-count.component';
     SenderMessageComponentComponent,
     HeaderComponentComponent,
     HighlightDirective,
-    MessageCountComponent
+    MessageCountComponent,
+    ApplicationBodyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
   ],
   providers: [
     LoggingService,
